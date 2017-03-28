@@ -12,3 +12,15 @@ Suggests: covr,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+Imports: httr,
+    jsonlite,
+    magrittr,
+    dplyr,
+    tibble,
+    stringr,
+    tidyr,
+    rvest,
+    xml2,
+    purrr
+RoxygenNote: 6.0.1
