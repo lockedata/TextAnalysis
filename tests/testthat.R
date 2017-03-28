@@ -1,4 +1,4 @@
 library(testthat)
-library(LockeDataTextAnalysis)
+library(TextAnalysis)
 
-test_check("LockeDataTextAnalysis")
+test_check("TextAnalysis")

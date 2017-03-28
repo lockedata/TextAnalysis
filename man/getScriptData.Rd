@@ -4,7 +4,10 @@
 \alias{getScriptData}
 \title{Scrape the web for Monty Python scripts}
 \usage{
-getScriptData()
+getScriptData(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{Lots of printing}
 }
 \value{
 data.frame containing script info and script text
