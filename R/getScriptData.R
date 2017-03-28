@@ -39,8 +39,15 @@ getScriptData<-function(verbose=TRUE){
 
   if(verbose) message("Deduped data")
 
+  dedupeddata %>%
+    dplyr::group_by(Script) %>%
+    dplyr::count() %>%
+    dplyr::mutate(showid=dplyr::row_number(Script)) %>%
+    dplyr::select(-n) ->
+    scriptids
+
   dedupeddata%>%
-    dplyr::mutate(.,showid=dplyr::group_indices(., Script)) %>%
+    dplyr::inner_join(scriptids) %>%
     dplyr::mutate(scriptid=dplyr::row_number(Script)) %>%
     dplyr::filter(!is.na(.out))  %>%
     tidyr::unnest(.out) %>%
