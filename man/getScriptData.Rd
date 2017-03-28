@@ -4,7 +4,7 @@
 \alias{getScriptData}
 \title{Scrape the web for Monty Python scripts}
 \usage{
-getScriptData(verbose = TRUE)
+getScriptData(verbose = FALSE)
 }
 \arguments{
 \item{verbose}{Lots of printing}

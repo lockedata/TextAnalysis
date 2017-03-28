@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' getScriptData()
-getScriptData<-function(verbose=TRUE){
+getScriptData<-function(verbose=FALSE){
   getScriptURLs() %>%
     purrr::by_row(getScript) %>%
     dplyr::bind_rows() ->
@@ -51,7 +51,9 @@ getScriptData<-function(verbose=TRUE){
     dplyr::mutate(scriptid=dplyr::row_number(Script)) %>%
     dplyr::filter(!is.na(.out))  %>%
     tidyr::unnest(.out) %>%
-    dplyr::select(dplyr::ends_with("id"), dplyr::everything(), ScriptText=.out) ->
+    dplyr::select(dplyr::ends_with("id"), dplyr::everything(), ScriptText=.out) %>%
+    dplyr::mutate(ScriptText=stringr::str_replace_all(ScriptText,stringr::fixed("\t"),"")) %>%
+    dplyr::mutate(ScriptText=stringr::str_trim(ScriptText)) ->
     outputdata
 
   if(verbose) message("Produced final format")

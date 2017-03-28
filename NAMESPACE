@@ -3,6 +3,7 @@
 export("%>%")
 export(getScript)
 export(getScriptData)
+export(getScriptLines)
 export(getScriptURLs)
 export(getSentiment)
 importFrom(magrittr,"%>%")

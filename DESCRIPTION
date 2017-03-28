@@ -1,6 +1,6 @@
 Package: TextAnalysis
 Title: Code for Locke Data Text Analysis Training
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: person("Steph", "Locke", email = "steph@itsalocke.com", role = c("aut", "cre"))
 Description: Functionality for performing text analysis within
               Locke Data Text Analysis training sessions.
@@ -23,5 +23,6 @@ Imports: httr,
     tidyr,
     rvest,
     xml2,
-    purrr
+    purrr,
+    tidytext
 RoxygenNote: 6.0.1
