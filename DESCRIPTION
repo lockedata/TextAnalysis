@@ -1,9 +1,10 @@
-Package: LockeDataTextAnalysis
-Title: What the Package Does (one line, title case)
+Package: TextAnalysis
+Title: Code for Locke Data Text Analysis Training
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.3.3)
+Authors@R: person("Steph", "Locke", email = "steph@itsalocke.com", role = c("aut", "cre"))
+Description: Functionality for performing text analysis within
+              Locke Data Text Analysis training sessions.
+Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
