@@ -28,5 +28,5 @@ getSentiment<-function(textdf, apikey=NULL){
   if(class(textdf$id)=="numeric") responses$id<-as.numeric(responses$id)
 
   # Combine
-  return( dplyr::left_join(textdf, responses))
+  return( dplyr::left_join(textdf, responses, by="id"))
 }

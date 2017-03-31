@@ -4,9 +4,11 @@
 \alias{getScriptData}
 \title{Scrape the web for Monty Python scripts}
 \usage{
-getScriptData(verbose = FALSE)
+getScriptData(offline = FALSE, verbose = FALSE)
 }
 \arguments{
+\item{offline}{Use an offline copy instead of fetching data}
+
 \item{verbose}{Lots of printing}
 }
 \value{
@@ -18,5 +20,5 @@ where the script is the multi-media version, not
 the "working" version.
 }
 \examples{
-getScriptData()
+getScriptData(offline=TRUE)
 }

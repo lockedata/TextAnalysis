@@ -2,16 +2,19 @@
 % Please edit documentation in R/getScriptLines.R
 \name{getScriptLines}
 \alias{getScriptLines}
-\title{Get Monty Python script speech lines}
+\title{Get Monty Python script lines}
 \usage{
-getScriptLines()
+getScriptLines(offline = FALSE)
+}
+\arguments{
+\item{offline}{Use an offline copy instead of fetching data}
 }
 \value{
-data.frame of speech lines from Monty Python scripts
+data.frame of lines from Monty Python scripts
 }
 \description{
-Get Monty Python script speech lines
+Get Monty Python script lines
 }
 \examples{
-head(getScriptLines())
+head(getScriptLines(offline=TRUE))
 }

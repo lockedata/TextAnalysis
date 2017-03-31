@@ -15,7 +15,21 @@ NULL
 #' @name scriptData
 "scriptData"
 
+#' Table of Monty Python script lines
+#'
+#' @name scriptLines
+"scriptLines"
 
+
+#' Table of Monty Python script speech lines
+#'
+#' @name scriptSpeech
+"scriptSpeech"
+
+#' Table of words from Monty Python script speech lines
+#'
+#' @name scriptWords
+"scriptWords"
 APIKEY<-'74aae832df56489daed758fbe4c29f94'
 MONTYPYTHONSCRIPTSITE<-"http://www.montypython.net/"
 MONTYPYTHONSCRIPTPAGE<-"http://www.montypython.net/"

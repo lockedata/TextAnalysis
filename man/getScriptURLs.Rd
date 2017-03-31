@@ -4,7 +4,10 @@
 \alias{getScriptURLs}
 \title{Get Monty Python script URLs}
 \usage{
-getScriptURLs()
+getScriptURLs(offline = FALSE)
+}
+\arguments{
+\item{offline}{Use an offline copy instead of fetching data}
 }
 \value{
 tibble containing script name and URL
@@ -14,6 +17,5 @@ Based on \code{MONTYPYTHONSCRIPTSITE}, retrieve relevant
 URLs of Monty Python scripts.
 }
 \examples{
-df<-getScriptURLs()
-head(df)
+head(getScriptURLs(offline=TRUE))
 }

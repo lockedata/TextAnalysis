@@ -4,13 +4,16 @@
 #' where the script is the multi-media version, not
 #' the "working" version.
 #'
+#' @param offline Use an offline copy instead of fetching data
 #' @param verbose Lots of printing
 #' @return data.frame containing script info and script text
 #' @export
 #'
 #' @examples
-#' getScriptData()
-getScriptData<-function(verbose=FALSE){
+#' getScriptData(offline=TRUE)
+getScriptData<-function(offline = FALSE, verbose=FALSE){
+  if(offline) return(scriptData)
+
   getScriptURLs() %>%
     purrr::by_row(getScript) %>%
     dplyr::bind_rows() ->
@@ -47,7 +50,7 @@ getScriptData<-function(verbose=FALSE){
     scriptids
 
   dedupeddata%>%
-    dplyr::inner_join(scriptids) %>%
+    dplyr::inner_join(scriptids, by = "Script") %>%
     dplyr::mutate(scriptid=dplyr::row_number(Script)) %>%
     dplyr::filter(!is.na(.out))  %>%
     tidyr::unnest(.out) %>%

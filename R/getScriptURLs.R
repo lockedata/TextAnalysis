@@ -3,14 +3,14 @@
 #' Based on `MONTYPYTHONSCRIPTSITE`, retrieve relevant
 #' URLs of Monty Python scripts.
 #'
-#'
+#' @param offline Use an offline copy instead of fetching data
 #' @return tibble containing script name and URL
 #' @export
 #'
 #' @examples
-#' df<-getScriptURLs()
-#' head(df)
-getScriptURLs <- function() {
+#' head(getScriptURLs(offline=TRUE))
+getScriptURLs <- function(offline=FALSE) {
+  if(offline) return(scriptURLs)
 
   page <- xml2::read_html(MONTYPYTHONSCRIPTPAGE)
 

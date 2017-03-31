@@ -1,16 +1,18 @@
-#' Get Monty Python script speech lines
+#' Get Monty Python script lines
 #'
-#' @return data.frame of speech lines from Monty Python scripts
+#' @param offline Use an offline copy instead of fetching data
+#' @return data.frame of lines from Monty Python scripts
 #' @export
 #'
 #' @examples
-#' head(getScriptLines())
-getScriptLines<-function(){
+#' head(getScriptLines(offline=TRUE))
+getScriptLines<-function(offline=FALSE){
+  if(offline) return(scriptLines)
   getScriptData() %>%
     tidytext::unnest_tokens(lines,ScriptText,token="lines",collapse = TRUE) %>%
     dplyr::filter(lines!="") %>%
     dplyr::mutate(lineid=dplyr::row_number(lines)) %>%
-    dplyr::mutate(Line = stringr::str_detect(lines,stringr::fixed(":"))) %>%
+    dplyr::mutate(Speech = stringr::str_detect(lines,stringr::fixed(":"))) %>%
     dplyr::mutate(Action=stringr::str_detect(lines,stringr::fixed("["))) %>%
     dplyr::mutate(Character=stringr::str_extract(lines,"^(.+)\\b\\:")) %>%
     dplyr::mutate(Character=stringr::str_replace(Character,stringr::fixed(":"),"")) %>%
