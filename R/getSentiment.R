@@ -25,7 +25,7 @@ getSentiment<-function(textdf, apikey=NULL){
 
   respcontent<-httr::content(response, as="text")
   responses<-jsonlite::fromJSON(respcontent)$documents
-  if(class(textdf$id)=="numeric") responses$id<-as.numeric(responses$id)
+  if(class(textdf$id) %in% c("numeric","integer")) responses$id<-as.numeric(responses$id)
 
   # Combine
   return( dplyr::left_join(textdf, responses, by="id"))
