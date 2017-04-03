@@ -3,12 +3,12 @@
 \docType{data}
 \name{scriptWords}
 \alias{scriptWords}
-\title{Table of words from Monty Python script speech lines}
+\title{Table of words from Monty Python script speech lines without stop words}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 9262 rows and 12 columns.}
 \usage{
 scriptWords
 }
 \description{
-Table of words from Monty Python script speech lines
+Table of words from Monty Python script speech lines without stop words
 }
 \keyword{datasets}

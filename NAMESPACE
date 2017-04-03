@@ -2,6 +2,7 @@
 
 export("%>%")
 export(getScript)
+export(getScriptAllWords)
 export(getScriptData)
 export(getScriptLines)
 export(getScriptSpeech)

@@ -26,10 +26,16 @@ NULL
 #' @name scriptSpeech
 "scriptSpeech"
 
-#' Table of words from Monty Python script speech lines
+#' Table of words from Monty Python script speech lines without stop words
 #'
 #' @name scriptWords
 "scriptWords"
+
+#' Table of words from Monty Python script speech lines
+#'
+#' @name scriptAllWords
+"scriptAllWords"
+
 APIKEY<-'74aae832df56489daed758fbe4c29f94'
 MONTYPYTHONSCRIPTSITE<-"http://www.montypython.net/"
 MONTYPYTHONSCRIPTPAGE<-"http://www.montypython.net/"
