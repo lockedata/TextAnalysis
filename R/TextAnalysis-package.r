@@ -47,6 +47,10 @@ NULL
 #' @name scriptAllBigrams
 "scriptAllBigrams"
 
+#' Table of negations
+#'
+#' @name negations
+"negations"
 APIKEY<-'74aae832df56489daed758fbe4c29f94'
 MONTYPYTHONSCRIPTSITE<-"http://www.montypython.net/"
 MONTYPYTHONSCRIPTPAGE<-"http://www.montypython.net/"
