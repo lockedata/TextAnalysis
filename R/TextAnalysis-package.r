@@ -36,6 +36,17 @@ NULL
 #' @name scriptAllWords
 "scriptAllWords"
 
+
+#' Table of bi-grams from Monty Python script speech lines without stop words
+#'
+#' @name scriptBigrams
+"scriptBigrams"
+
+#' Table of bi-grams from Monty Python script speech lines
+#'
+#' @name scriptAllBigrams
+"scriptAllBigrams"
+
 APIKEY<-'74aae832df56489daed758fbe4c29f94'
 MONTYPYTHONSCRIPTSITE<-"http://www.montypython.net/"
 MONTYPYTHONSCRIPTPAGE<-"http://www.montypython.net/"
