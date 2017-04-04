@@ -1,6 +1,6 @@
 Package: TextAnalysis
 Title: Code for Locke Data Text Analysis Training
-Version: 0.0.0.9007
+Version: 0.0.0.9008
 Authors@R: person("Steph", "Locke", email = "steph@itsalocke.com", role = c("aut", "cre"))
 Description: Functionality for performing text analysis within
               Locke Data Text Analysis training sessions.
