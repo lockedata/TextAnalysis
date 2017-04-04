@@ -6,7 +6,7 @@
 #'
 #' @examples
 #' df<-data.frame(word1=LETTERS[1:5], word2=LETTERS[2:6], n=1:5)
-#' chartBigrams(df)
+#' chartConnections(df)
 #'
 chartConnections <- function(bigrams) {
   igraph::graph_from_data_frame(bigrams) %>%
