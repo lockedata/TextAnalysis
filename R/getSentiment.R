@@ -6,18 +6,19 @@
 #' Optionally you can also provide a "language" column with ISO country codes,
 #' otherwise it will default to "en".
 #' @param apikey Your key for working with Microsoft Cognitive Services
+#' @param cogapi Your API endpoint for Microsoft Cognitive Services
 #'
 #' @return response A data.frame with id and a sentiment score
 #'
 #' @export
 #'
 
-getSentiment<-function(textdf, apikey=NULL){
+getSentiment<-function(textdf, apikey=NULL, cogapi=NULL){
   if(is.null(apikey)) apikey<-APIKEY
+  if(is.null(cogapi)) cogapi<-ENDPOINT
   stopifnot(inherits(textdf, "data.frame"))
   if(!("language" %in% colnames(textdf))) textdf$language <-"en"
   tosend<-jsonlite::toJSON(list(documents= textdf))
-  cogapi<-"https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment"
   # Construct a request
   response<-httr::POST(cogapi,
                        httr::add_headers(`Ocp-Apim-Subscription-Key`=apikey),
@@ -26,7 +27,8 @@ getSentiment<-function(textdf, apikey=NULL){
   respcontent<-httr::content(response, as="text")
   responses<-jsonlite::fromJSON(respcontent)$documents
   if(class(textdf$id) %in% c("numeric","integer")) responses$id<-as.numeric(responses$id)
-
   # Combine
-  return( dplyr::left_join(textdf, responses, by="id"))
+  tidy_reponses <-dplyr::left_join(textdf, responses, by="id")
+
+  return( tidy_reponses)
 }

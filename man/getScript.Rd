@@ -4,18 +4,18 @@
 \alias{getScript}
 \title{Return a script for a given URL}
 \usage{
-getScript(df)
+getScript(url)
 }
 \arguments{
-\item{df}{Data,frame}
+\item{url}{A script url}
 }
 \value{
-a character vector
+a string
 }
 \description{
 Return a script for a given URL
 }
 \examples{
 df<-getScriptURLs()
-getScript(df[1,])
+getScript(df[1,"URL"])
 }

@@ -29,5 +29,5 @@ getScriptURLs <- function(offline=FALSE) {
 
   df <- tibble::tibble(name = names, URL)
 
-  return(df)
+  return(df[-1,])
 }

@@ -26,5 +26,6 @@ Imports: httr,
     purrr,
     tidytext,
     igraph,
-    ggraph
-RoxygenNote: 6.0.1
+    ggraph,
+    ggplot2
+RoxygenNote: 6.1.1

@@ -4,7 +4,7 @@
 \alias{getSentiment}
 \title{Send text to Microsoft Cognitive Services' Sentiment API}
 \usage{
-getSentiment(textdf, apikey = NULL)
+getSentiment(textdf, apikey = NULL, cogapi = NULL)
 }
 \arguments{
 \item{textdf}{A data.frame consisting of two cols with colnames \code{c("id","text")}.
@@ -12,6 +12,8 @@ Optionally you can also provide a "language" column with ISO country codes,
 otherwise it will default to "en".}
 
 \item{apikey}{Your key for working with Microsoft Cognitive Services}
+
+\item{cogapi}{Your API endpoint for Microsoft Cognitive Services}
 }
 \value{
 response A data.frame with id and a sentiment score

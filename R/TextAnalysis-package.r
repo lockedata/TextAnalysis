@@ -51,7 +51,8 @@ NULL
 #'
 #' @name negations
 "negations"
-APIKEY<-'74aae832df56489daed758fbe4c29f94'
+ENDPOINT<-"https://nhsr.cognitiveservices.azure.com/text/analytics/v2.1/sentiment"
+APIKEY<-'609d04a979124083a4f97a3716233d8b'
 MONTYPYTHONSCRIPTSITE<-"http://www.montypython.net/"
 MONTYPYTHONSCRIPTPAGE<-"http://www.montypython.net/"
 

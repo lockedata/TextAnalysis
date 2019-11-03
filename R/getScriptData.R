@@ -15,20 +15,19 @@ getScriptData<-function(offline = FALSE, verbose=FALSE){
   if(offline) return(scriptData)
 
   getScriptURLs() %>%
-    purrr::by_row(getScript) %>%
-    dplyr::bind_rows() ->
+    dplyr::mutate(ScriptText=purrr::map_chr(URL, getScript)) ->
     basicdata
 
  if(verbose) message("Got script raw data")
 
-  basicdata%>%
+  basicdata %>%
     dplyr::filter(stringr::str_detect(name,"Script")) %>%
     dplyr::filter(!stringr::str_detect(name,"Scripts")) %>%
     dplyr::filter(!stringr::str_detect(name,"Working")) %>%
     tidyr::separate(name,into=c("Script","Part")
              ,sep=stringr::fixed(" Part "),extra = "merge",fill="right") ->
     filtereddata
-
+ #
   if(verbose) message("Filtered raw data")
 
   filtereddata%>%
@@ -49,14 +48,13 @@ getScriptData<-function(offline = FALSE, verbose=FALSE){
     dplyr::select(-n) ->
     scriptids
 
-  dedupeddata%>%
+  dedupeddata %>%
     dplyr::inner_join(scriptids, by = "Script") %>%
     dplyr::mutate(scriptid=dplyr::row_number(Script)) %>%
-    dplyr::filter(!is.na(.out))  %>%
-    tidyr::unnest(.out) %>%
-    dplyr::select(dplyr::ends_with("id"), dplyr::everything(), ScriptText=.out) %>%
-    dplyr::mutate(ScriptText=stringr::str_replace_all(ScriptText,stringr::fixed("\t"),"")) %>%
-    dplyr::mutate(ScriptText=stringr::str_trim(ScriptText)) ->
+    dplyr::filter(!is.na(ScriptText))  %>%
+    dplyr::select(dplyr::ends_with("id"), dplyr::everything(), ScriptText) %>%
+    dplyr::mutate(ScriptText=stringr::str_trim(
+      stringr::str_replace_all(ScriptText,stringr::fixed("\t"),""))) ->
     outputdata
 
   if(verbose) message("Produced final format")
